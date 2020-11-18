@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div @click.stop="btnclick1"> 哈哈
+            <a href="http://www.baidu.com" @click.prevent.stop="btnclick">百度</a>
+            <a href="http://www.taobao.com" @click.selt.prevent>淘宝</a>
+        </div>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '你好啊'
+            },
+            methods: {
+                btnclick() {
+                    console.log('btncclick()');
+                },
+                btnclick1() {
+                    console.log('btncclick1()');
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

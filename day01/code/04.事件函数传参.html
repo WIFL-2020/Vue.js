@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2>计数器的数字：{{count}}</h2>
+        <button @click="add">+</button>
+        <button @click="sub">-</button>
+        <button @click="hander(5,8,$event)">按钮</button>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '你好啊',
+                count: 0
+            },
+            methods: {
+                add() {
+                    this.count++
+                },
+                sub() {
+                    this.count--
+                },
+                // hander: function(p1, p2, event) {
+                //     console.log(event.target.innerHTML);
+                // }
+                hander(p1, p2, event) {
+                    console.log(event.target.innerHTML);
+                    console.log(p1 + p2, event);
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>
