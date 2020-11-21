@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- #2 不填坑，就用默认挖的坑 -->
+        <alert-box></alert-box>
+        <!-- #2 填坑，填坑就用自己内容去填，说白了就会用自己的内容去替换整个 slot -->
+        <alert-box>
+            <p>Hello World</p>
+        </alert-box>
+    </div>
+    <script type="text/javascript" src="js/vue.js"></script>
+    <script type="text/javascript">
+        /*
+                                  组件插槽：父组件向子组件传递内容
+                                */
+        Vue.component('alert-box', {
+            // #1 slot 用来挖坑
+            template: `
+                <div>
+                    <strong>ERROR:</strong>
+                    <slot>默认内容</slot>
+                </div>
+            `
+        });
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            }
+        });
+    </script>
+</body>
+
+</html>

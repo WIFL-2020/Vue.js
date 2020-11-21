@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <cpn :move="movies" @btnclick="hander"> </cpn>
+        <div :style='{fontSize:fontSize+"px"}'>{{message}}</div>
+    </div>
+    <template id="cpn">
+        <div>
+            <h2><button @click='$emit("btnclick")'>放大字体大小</button></h2>
+            <ul>
+                <li v-for="(item,index) in move" :key="item.id">{{item}}</li>
+            </ul>
+        </div>
+    </template>
+    <script src="js/vue.js"></script>
+    <script>
+        //父传子     
+        Vue.component('cpn', {
+            template: '#cpn',
+            props: ['move']
+        })
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '你好啊',
+                movies: ['刀剑神域', '海贼王', '虹猫蓝兔七侠传'],
+                fontSize: 10
+            },
+            methods: {
+                hander() {
+                    this.fontSize += 5
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <cpn :move="movies" :mes="message"></cpn>
+    </div>
+    <template id="cpn">
+        <div>
+            <ul>
+                <li :key="index" v-for="(item,index) in move">{{item}}</li>
+            </ul>
+            <h2>{{}}</h2>
+            <div>{{mes}}</div>
+        </div>
+    </template>
+    <script src="js/vue.js"></script>
+    <script>
+        Vue.component('cpn', {
+            template: '#cpn',
+
+            props: ['move', 'mes']
+        })
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '你好啊',
+                movies: ['海贼王', '火影', '银魂', '美国队长'],
+            },
+        })
+    </script>
+</body>
+
+</html>
