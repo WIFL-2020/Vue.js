@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //产生实例对象
+        const p = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if (Math.random() > 0.5) {
+                        //这里可以传递成功之后的参数
+                        resolve('成功')
+                    } else {
+                        reject('失败')
+                    }
+                }, 2000)
+            })
+            //想要拿到成功或失败之后的结果，要通过then
+            //then 里面有两个参数，参数都是函数
+        p.then(date => {
+            //成功走这里
+            console.log(date);
+        }, err => {
+            //失败走这里
+            console.log(err);
+        })
+    </script>
+</body>
+
+</html>
